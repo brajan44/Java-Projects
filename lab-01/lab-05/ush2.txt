@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class InputValidation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Çmimi bazë (lek): ");
+        int base = sc.nextInt();
+
+        if (base <= 0) {
+            System.out.println("Gabim: çmimi bazë duhet të jetë pozitiv!");
+            return; 
+        }
+
+        System.out.print("A je nxënës? (true/false): ");
+        boolean isStudent;
+
+        if (sc.hasNextBoolean()) {
+            isStudent = sc.nextBoolean();
+        } else {
+            
+            String input = sc.next(); 
+            if (input.equalsIgnoreCase("po")) {
+                isStudent = true;
+            } else if (input.equalsIgnoreCase("jo")) {
+                isStudent = false;
+            } else {
+                System.out.println("Gabim: duhej true/false (ose po/jo)!");
+                return;
+            }
+        }
+
+        System.out.println("Lexim OK: base=" + base + ", isStudent=" + isStudent);
+
+        sc.close();
+    }
+}

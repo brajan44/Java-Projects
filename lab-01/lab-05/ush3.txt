@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class OrderCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Produkt: ");
+        String emriProduktit = sc.nextLine();
+
+        System.out.print("Sasia: ");
+        int sasia = sc.nextInt();
+        if (sasia <= 0) {
+            System.out.println("Gabim: sasia duhet > 0!");
+            return;
+        }
+
+        System.out.print("Çmimi njësi: ");
+        double cmimiNjesi = sc.nextDouble();
+        if (cmimiNjesi <= 0) {
+            System.out.println("Gabim: çmimi njësi duhet > 0!");
+            return;
+        }
+
+        System.out.print("Kupon? (true/false): ");
+        boolean kaKupon;
+        if (sc.hasNextBoolean()) {
+            kaKupon = sc.nextBoolean();
+        } else {
+            System.out.println("Gabim: duhet të shkruash true ose false!");
+            return;
+        }
+
+        double ndermjetese = sasia * cmimiNjesi;
+        double meTVSH = ndermjetese * 1.10; // +10%
+        double zbritjeKupon = kaKupon ? meTVSH * 0.05 : 0.0;
+        double total = meTVSH - zbritjeKupon;
+
+        long totalLek = Math.round(total);
+
+        System.out.println("Ndërmjetëse: " + ndermjetese);
+        System.out.println("Me TVSH (10%): " + meTVSH);
+        System.out.println("Kupon -5%: " + zbritjeKupon);
+        System.out.println("Totali (lek): " + totalLek);
+
+        sc.close();
+    }
+}
