@@ -1,0 +1,31 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Mireseardhje {
+    public static void main(String[] args) {
+        String emri = "Brajan"; 
+
+        
+        LocalDateTime tani = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String dataOra = tani.format(formatter);
+
+
+        int ora = tani.getHour();
+        String pershendetje;
+
+        if (ora >= 5 && ora < 12) {
+            pershendetje = "Mirëmëngjes";
+        } else if (ora >= 12 && ora < 18) {
+            pershendetje = "Mirëdita";
+        } else {
+            pershendetje = "Mirëmbrëma";
+        }
+
+        
+        System.out.println("Hello, World");
+        System.out.println("Përshëndetje, " + emri + "!");
+        System.out.println("Sot është: " + dataOra);
+        System.out.println(pershendetje + " dhe mirë se erdhe në Java!");
+    }
+}

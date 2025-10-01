@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class CompareLogicDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Shkruaj moshen: ");
+        int mosha = sc.nextInt();
+
+        System.out.print("A je nxënës? (true/false): ");
+        boolean eshteNxenes = sc.nextBoolean();
+
+        boolean zbritjaLejohet = (mosha < 18 || eshteNxenes);
+
+        boolean zbritjeShtese = (mosha < 12 && eshteNxenes);
+
+        
+        System.out.println("Zbritja lejohet: " + zbritjaLejohet);
+        System.out.println("Zbritje shtesë 2 lek: " + zbritjeShtese);
+
+        sc.close();
+    }
+}

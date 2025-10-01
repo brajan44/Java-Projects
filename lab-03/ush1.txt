@@ -1,0 +1,32 @@
+public class ArithmeticDemo {
+    public static void main(String[] args) {
+        int a = 22, b = 6, c = 4;
+
+
+
+        System.out.println("a + b = " + (a + b));
+        System.out.println("a - b = " + (a - b));
+        System.out.println("a * b = " + (a * b));
+        System.out.println("a / b = " + (a / b) + " // ndarje e plotë");
+        System.out.println("a % b = " + (a % b));
+        System.out.println();
+
+
+        System.out.println("Fillimisht: b = " + b);
+
+        int r1 = b++ * c;  
+        System.out.println("Pas-inkrement: r1 = b++ * c = " + r1);
+        System.out.println("Pas kësaj, b = " + b);
+
+        
+        int r2 = ++b * c;
+        System.out.println("Para-inkrement: r2 = ++b * c = " + r2);
+        System.out.println("Pas kësaj, b = " + b);
+
+        
+        System.out.println("b-- = " + (b--)); 
+        System.out.println("Pas b--, b = " + b);
+        System.out.println("--b = " + (--b)); 
+        System.out.println("Pas --b, b = " + b);
+    }
+}

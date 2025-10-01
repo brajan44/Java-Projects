@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class DoubleCompare {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Shkruaj tarifaTeorike: ");
+        double tarifaTeorike = sc.nextDouble();
+
+        System.out.print("Shkruaj tarifaLlogaritur: ");
+        double tarifaLlogaritur = sc.nextDouble();
+
+        final double EPS = 0.0001;
+
+        boolean baraziSakte = tarifaTeorike == tarifaLlogaritur;
+
+        boolean baraziPerfaret = Math.abs(tarifaTeorike - tarifaLlogaritur) < EPS;
+
+        System.out.println("Barazi e saktë (==): " + baraziSakte + "  // mund të jetë false për shkak të precizionit të double");
+        System.out.println("Barazi e përafërt (epsilon): " + baraziPerfaret + "  // true sepse diferenca është më e vogël se EPS");
+
+        sc.close();
+    }
+}

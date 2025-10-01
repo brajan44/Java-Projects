@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class TicketCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        
+        final double TVSH = 0.10;    
+        final int ZBRITJE_NX = 5;    
+
+        
+        System.out.print("Shkruaj çmimin bazë (lek): ");
+        int basePrice = sc.nextInt();
+
+        System.out.print("A je nxënës? (true/false): ");
+        boolean isStudent = sc.nextBoolean();
+
+        
+        double tvshValue = basePrice * TVSH;
+        double withTVSH = basePrice + tvshValue;
+
+       
+        double afterDiscount = withTVSH;
+        if (isStudent) {
+            afterDiscount -= ZBRITJE_NX;
+        }
+
+        int total = (int) Math.round(afterDiscount);
+
+      
+        System.out.println("Çmimi bazë: " + basePrice + " lek");
+        System.out.println("TVSH (10%): " + tvshValue + " lek");
+        System.out.println("Ndërmjetëse me TVSH: " + withTVSH + " lek");
+        if (isStudent) {
+            System.out.println("Zbritje nxënësi: " + ZBRITJE_NX + " lek");
+        }
+        System.out.println("Totali për pagesë: " + total + " lek");
+
+        sc.close();
+    }
+}

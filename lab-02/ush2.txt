@@ -1,0 +1,39 @@
+public class CastingDemo {
+    public static void main(String[] args) {
+        
+        int i = 200;
+        long l = i; 
+        float f = 7.23f;
+        double d = f; 
+
+        System.out.println("Implicit casting:");
+        System.out.println("int i = " + i + " -> long l = " + l);
+        System.out.println("float f = " + f + " -> double d = " + d);
+        System.out.println();
+
+        
+        double d2 = 9.78;
+        int i2 = (int) d2; 
+        
+        long l2 = 1234567890123L;
+        int i3 = (int) l2; 
+        
+        double d3 = 12345.6789;
+        float f2 = (float) d3;
+
+        System.out.println("Explicit casting:");
+        System.out.println("double d2 = " + d2 + " -> int i2 = " + i2 + "   // humbja e pjesës dhjetore");
+        System.out.println("long l2 = " + l2 + " -> int i3 = " + i3 + "   // humbje e vlerës së plotë");
+        System.out.println("double d3 = " + d3 + " -> float f2 = " + f2 + "   // humbje precizioni");
+        System.out.println();
+
+       
+        byte b = 127; 
+        byte b2 = (byte)(b + 1); 
+
+        System.out.println("Overflow:");
+        System.out.println("byte b = " + b);
+        System.out.println("b + 1 (si int) = " + (b + 1));
+        System.out.println("cast në byte -> b2 = " + b2 + "   // overflow, kalon në -128");
+    }
+}

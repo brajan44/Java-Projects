@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class TicketCounter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        final double cmim = 40.0; 
+
+      
+        System.out.print("Shkruaj biletaFillestare: ");
+        int biletaFillestare = sc.nextInt();
+
+        System.out.print("Shkruaj shitje paradite: ");
+        int shitje1 = sc.nextInt();
+
+        System.out.print("Shkruaj shitje pasdite: ");
+        int shitje2 = sc.nextInt();
+
+        System.out.print("A aplikohet bonus ditor? (true/false): ");
+        boolean bonusDitor = sc.nextBoolean();
+
+      
+        int stok = biletaFillestare;
+        System.out.println("Stok fillestar: " + stok);
+
+        stok -= shitje1;
+        System.out.println("Shitje paradite: " + shitje1 + " → stok: " + stok);
+
+        stok -= shitje2;
+        System.out.println("Shitje pasdite: " + shitje2 + " → stok: " + stok);
+
+       
+        int totalBiletaShitura = shitje1 + shitje2;
+        System.out.println("Totali i biletave të shitura: " + totalBiletaShitura);
+
+       
+        double teArdhura = totalBiletaShitura * cmim;
+        System.out.println("Të ardhurat bruto: " + teArdhura);
+
+        if (bonusDitor) {
+            double bonus = teArdhura * 0.05;
+            teArdhura += bonus;
+            System.out.println("Bonus 5% i aplikuar: " + bonus);
+        }
+
+        System.out.println("\nTë ardhurat neto: " + teArdhura);
+
+        
+        int raporto = (int) Math.round(teArdhura);
+        System.out.println("Raporto (lek, i rrumbullakuar): " + raporto);
+
+        sc.close();
+    }
+}

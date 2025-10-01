@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class MonthlyFare {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+      
+        System.out.print("Shkruaj ditët e punës: ");
+        int ditePune = sc.nextInt();
+
+        System.out.print("Shkruaj çmimin ditor: ");
+        double cmimDitor = sc.nextDouble();
+
+        System.out.print("A je nxënës? (true/false): ");
+        boolean eshteNxenes = sc.nextBoolean();
+
+        System.out.print("Shkruaj distanceKm: ");
+        int distanceKm = sc.nextInt();
+
+       
+        double tarifaBaze = ditePune * cmimDitor;
+        System.out.println("Tarifa bazë: " + tarifaBaze);
+
+       
+        double pasZbritjesNx = tarifaBaze;
+        if (eshteNxenes) {
+            pasZbritjesNx = tarifaBaze * 0.9; 
+        }
+        System.out.println("Pas zbritjes nxënësi (nëse aplikohet): " + pasZbritjesNx);
+
+        
+        double pasShteseDist = pasZbritjesNx;
+        if (distanceKm > 10) {
+            pasShteseDist = pasZbritjesNx * 1.05;
+        }
+        System.out.println("Pas shtesës distancë (" + distanceKm + " km): " + pasShteseDist);
+
+        
+        double pasKuponit = pasShteseDist;
+        if (ditePune >= 22 && !eshteNxenes) {
+            pasKuponit = pasShteseDist - 200;
+            if (pasKuponit < 0) pasKuponit = 0; 
+        }
+        System.out.println("Pas kuponit besnikëri: " + pasKuponit);
+
+
+        int totali = (int) Math.round(pasKuponit);
+        System.out.println("Totali (lek): " + totali);
+
+        sc.close();
+    }
+}
