@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class IfWarmup {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Shkruaj moshen: ");
+        int mosha = sc.nextInt();
+
+        if (mosha <= 0) {
+            System.out.println("Mosha e pavlefshme");
+            return;
+        }
+
+        if (mosha >= 18) {
+            System.out.println("Mbi 18 (i/e rritur)");
+        } else {
+            System.out.println("Nen 18 (i/e mitur)");
+        }
+
+        sc.close();
+    }
+}

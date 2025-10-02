@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class IfElseBasic {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Je nxënës? (true/false): ");
+        boolean eshteNxenes = sc.nextBoolean();
+
+        System.out.println("Status: nxënës = " + eshteNxenes);
+
+        if (eshteNxenes == true) {
+            System.out.println("Zbritje nxënësi: PO");
+        } else {
+            System.out.println("Zbritje nxënësi: JO");
+        }
+
+        sc.close();
+    }
+}

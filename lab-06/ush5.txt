@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class ScholarshipEligibility {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Shkruaj mesataren (0.0 - 10.0): ");
+        double mesatarja = sc.nextDouble();
+
+        System.out.print("Ke certifikatë olimpiade? (true/false): ");
+        boolean kaCertifikateOlimpiade = sc.nextBoolean();
+
+        System.out.print("Shkruaj të ardhurat familjare: ");
+        int teArdhuratFamiljare = sc.nextInt();
+
+        if (mesatarja < 0.0 || mesatarja > 10.0 || teArdhuratFamiljare <= 0) {
+            System.out.println("Të dhëna të pavlefshme");
+            return;
+        }
+
+        if (mesatarja >= 9.5 || kaCertifikateOlimpiade) {
+            System.out.println("Bursë e plotë");
+            if (mesatarja >= 9.5 && kaCertifikateOlimpiade) {
+                System.out.println("Arsye: mesatarja ≥ 9.5 dhe ka certifikatë olimpiade.");
+            } else if (mesatarja >= 9.5) {
+                System.out.println("Arsye: mesatarja ≥ 9.5.");
+            } else {
+                System.out.println("Arsye: ka certifikatë olimpiade.");
+            }
+        } else if (mesatarja >= 8.5 && teArdhuratFamiljare < 50000) {
+            System.out.println("Bursë e pjesshme");
+            System.out.println("Arsye: mesatarja ≥ 8.5 dhe të ardhurat < 50000.");
+        } else {
+            System.out.println("Nuk kualifikohet");
+            if (mesatarja < 8.5) {
+                System.out.println("Arsye: mesatarja < 8.5.");
+            } else {
+                System.out.println("Arsye: të ardhurat ≥ 50000 dhe pa kushte të tjera.");
+            }
+        }
+
+        sc.close();
+    }
+}

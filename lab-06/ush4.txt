@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class DiscountRules {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Shkruaj moshën: ");
+        int mosha = sc.nextInt();
+
+        System.out.print("Je nxënës? (true/false): ");
+        boolean eshteNxenes = sc.nextBoolean();
+
+        System.out.print("Shkruaj çmimin bazë: ");
+        double cmimiBaze = sc.nextDouble();
+
+        if (mosha <= 0 || cmimiBaze <= 0) {
+            System.out.println("Input i pavlefshëm");
+            return;
+        }
+
+        double zbritja = 0.0; 
+        String llojiZbritjes = "0%";
+
+        if (mosha < 6) {
+            zbritja = 1.0; 
+            llojiZbritjes = "FALAS";
+        } else if (mosha <= 18 || eshteNxenes) {
+            zbritja = 0.30;
+            llojiZbritjes = "30%";
+        } else if (mosha >= 65) {
+            zbritja = 0.20;
+            llojiZbritjes = "20%";
+        }
+
+        double totali = cmimiBaze * (1 - zbritja);
+        int totaliRrumbullak = (int)Math.round(totali);
+
+        System.out.println("Zbritje: " + llojiZbritjes);
+        System.out.println("Totali (lek): " + totaliRrumbullak);
+
+        sc.close();
+    }
+}
