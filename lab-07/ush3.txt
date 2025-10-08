@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class SwitchFallthrough {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Shkruaj kategorinë (1-4): ");
+        int kategoria = scanner.nextInt();
+
+        StringBuilder sherbimet = new StringBuilder();
+
+        switch (kategoria) {
+            case 4:
+                sherbimet.append("Premium, ");
+            case 3:
+                sherbimet.append("Siguri, ");
+            case 2:
+                sherbimet.append("Prioritet, ");
+            case 1:
+                sherbimet.append("Bazë");
+                break;
+            default:
+                System.out.println("Kategori e pavlefshme.");
+                scanner.close();
+                return;
+        }
+
+        System.out.println("Përfshihen: " + sherbimet.toString());
+
+        scanner.close();
+    }
+}

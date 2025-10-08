@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class SwitchWarmup {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Shkruaj një numër (1-7): ");
+        int dita = scanner.nextInt();
+
+        switch (dita) {
+            case 1:
+                System.out.println("E Hënë");
+                break;
+            case 2:
+                System.out.println("E Martë");
+                break;
+            case 3:
+                System.out.println("E Mërkurë");
+                break;
+            case 4:
+                System.out.println("E Enjte");
+                break;
+            case 5:
+                System.out.println("E Premte");
+                break;
+            case 6:
+                System.out.println("E Shtunë");
+                break;
+            case 7:
+                System.out.println("E Diel");
+                break;
+            default:
+                System.out.println("Vlerë e pavlefshme.");
+        }
+
+        scanner.close();
+    }
+}

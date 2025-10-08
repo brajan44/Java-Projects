@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class UrbanMenu {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Menuja Urbane:");
+        System.out.println("1) Biletë 40 lek");
+        System.out.println("2) Student -30%");
+        System.out.println("3) Senior 65+ -20%");
+        System.out.println("4) Info orari");
+        System.out.println("5) Dalje");
+
+        System.out.print("Zgjedhja: ");
+        int zgjedhja = scanner.nextInt();
+
+        int sasia;
+        double totali;
+
+        switch (zgjedhja) {
+            case 1:
+                System.out.print("Sasia: ");
+                sasia = scanner.nextInt();
+                if (sasia <= 0) {
+                    System.out.println("Sasia duhet të jetë më e madhe se zero.");
+                    break;
+                }
+                totali = sasia * 40;
+                System.out.println("Biletë standarde");
+                System.out.println("Totali (lek): " + (int)totali);
+                break;
+
+            case 2:
+                System.out.print("Sasia: ");
+                sasia = scanner.nextInt();
+                if (sasia <= 0) {
+                    System.out.println("Sasia duhet të jetë më e madhe se zero.");
+                    break;
+                }
+                totali = sasia * 40 * 0.7;
+                System.out.println("Biletë studentore (-30%)");
+                System.out.println("Totali (lek): " + (int)totali);
+                break;
+
+            case 3:
+                System.out.print("Sasia: ");
+                sasia = scanner.nextInt();
+                if (sasia <= 0) {
+                    System.out.println("Sasia duhet të jetë më e madhe se zero.");
+                    break;
+                }
+                totali = sasia * 40 * 0.8;
+                System.out.println("Biletë për seniorë (-20%)");
+                System.out.println("Totali (lek): " + (int)totali);
+                break;
+
+            case 4:
+                System.out.println("Orari: 06:00 – 23:00 çdo ditë.");
+                break;
+
+            case 5:
+                System.out.println("Dalje nga programi.");
+                break;
+
+            default:
+                System.out.println("Zgjedhje e pavlefshme.");
+        }
+
+        scanner.close();
+    }
+}
